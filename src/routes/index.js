@@ -12,7 +12,9 @@ const Routes = () => (
   <Template>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path={`${BAND}/:id`} component={BandPage} />
+      <Route path={`${BAND}/:id`}>
+        <BandPage />
+      </Route>
     </Switch>
   </Template>
 );

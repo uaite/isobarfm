@@ -1,18 +1,23 @@
 import React from "react";
 import { BandContainer } from "./style";
-import { Link } from "react-router-dom";
+
+import { useHistory } from "react-router-dom";
 
 import { BAND } from "../../constants/routes";
 
 const Band = ({ id, name, biography, image }) => {
+  const history = useHistory();
+
+  const onBandClicked = () => {
+    history.push(`/${BAND}/${id}`);
+  };
+
   return (
     <BandContainer>
       <img src={image} alt={name} />
       <p>{name}</p>
       <p>{biography}</p>
-      <Link to={`${BAND}/${id}`}>
-        <button>go to band</button>
-      </Link>
+      <button onClick={onBandClicked}>go to band</button>
     </BandContainer>
   );
 };

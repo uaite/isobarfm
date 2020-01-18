@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Loader from "../Loader";
 import Album from "../Album";
@@ -11,8 +12,8 @@ import * as bandActions from "../../actions/selectedBand";
 
 import * as albumSelectors from "../../selectors/albums";
 
-const BandPage = ({ match }) => {
-  const id = match.params.id;
+const BandPage = () => {
+  const { id } = useParams();
   const selectedBand = useSelector(bandSelectors.getSelectedBand);
   const isBandLoading = useSelector(bandSelectors.isSelectedBandLoading);
 

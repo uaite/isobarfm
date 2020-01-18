@@ -12,8 +12,6 @@ const initialState = {
 };
 
 const setAlbumsByBand = (albumList, bandID, albumIDs, byBand) => {
-  console.log("indexing albums", albumIDs, bandID);
-
   const albumsByBand = albumList.reduce((indexedAlbums, cur) => {
     for (const albumID of albumIDs) {
       if (albumID === cur.id) {

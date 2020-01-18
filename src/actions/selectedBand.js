@@ -37,11 +37,6 @@ export const setSelectedBand = selectedBand => {
   return { type: SET_SELECTED_BAND, value: selectedBand };
 };
 
-export const SET_SELECTED_BAND_ID = "SET_SELECTED_BAND_ID";
-export const setSelectedBandID = id => {
-  return { type: SET_SELECTED_BAND_ID, value: id };
-};
-
 export const SET_LOADING_SELECTED_BAND = "SET_LOADING_SELECTED_BAND";
 export const setLoadingSelectedBand = isLoading => {
   return { type: SET_LOADING_SELECTED_BAND, value: isLoading };

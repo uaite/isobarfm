@@ -1,15 +1,13 @@
 import {
   SET_SELECTED_BAND,
   SET_LOADING_SELECTED_BAND,
-  SET_SELECTED_BAND_ERROR,
-  SET_SELECTED_BAND_ID
+  SET_SELECTED_BAND_ERROR
 } from "../actions/selectedBand";
 
 const initialState = {
   band: {},
   isLoading: false,
-  error: null,
-  id: ""
+  error: null
 };
 
 export default (state = initialState, action) => {
@@ -18,12 +16,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         band: action.value,
-        error: null
-      };
-    case SET_SELECTED_BAND_ID:
-      return {
-        ...state,
-        id: action.value,
         error: null
       };
     case SET_LOADING_SELECTED_BAND:
