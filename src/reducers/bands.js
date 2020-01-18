@@ -1,13 +1,13 @@
 import {
   SET_BANDS,
   SET_LOADING_BAND_LIST,
-  SET_BANDS_ERROR
-} from "../actions/bands";
+  SET_BANDS_ERROR,
+} from '../actions/bands';
 
 const initialState = {
   list: [],
   isLoading: false,
-  error: null
+  error: null,
 };
 
 export default (state = initialState, action) => {
@@ -16,19 +16,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         list: action.value,
-        error: null
+        error: null,
       };
     case SET_LOADING_BAND_LIST:
       return {
         ...state,
-        isLoading: action.value
+        isLoading: action.value,
       };
     case SET_BANDS_ERROR:
       return {
         ...state,
         list: [],
         error: action.error,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;

@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Switch } from "react-router";
+import React from 'react';
+import { Route, Switch } from 'react-router';
 
-import Home from "../components/Home";
-import Template from "../components/Template/index";
-import BandPage from "../components/BandPage";
+import Home from '../components/Home';
+import Template from '../components/Template/index';
+import BandPage from '../components/BandPage';
 
-import { BAND } from "../constants/routes";
-import { connect } from "react-redux";
+import { BAND } from '../constants/routes';
+import { connect } from 'react-redux';
 
 const Routes = () => (
   <Template>

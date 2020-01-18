@@ -1,6 +1,6 @@
-import * as bandsAPI from "../services/bands";
+import * as bandsAPI from '../services/bands';
 
-import * as albumActions from "./albums";
+import * as albumActions from './albums';
 
 export const fetchBandByID = id => {
   return (dispatch, getState) => {
@@ -32,17 +32,17 @@ export const fetchBandByID = id => {
   };
 };
 
-export const SET_SELECTED_BAND = "SET_SELECTED_BAND";
+export const SET_SELECTED_BAND = 'SET_SELECTED_BAND';
 export const setSelectedBand = selectedBand => {
   return { type: SET_SELECTED_BAND, value: selectedBand };
 };
 
-export const SET_LOADING_SELECTED_BAND = "SET_LOADING_SELECTED_BAND";
+export const SET_LOADING_SELECTED_BAND = 'SET_LOADING_SELECTED_BAND';
 export const setLoadingSelectedBand = isLoading => {
   return { type: SET_LOADING_SELECTED_BAND, value: isLoading };
 };
 
-export const SET_SELECTED_BAND_ERROR = "SET_SELECTED_BAND_ERROR";
+export const SET_SELECTED_BAND_ERROR = 'SET_SELECTED_BAND_ERROR';
 export const setSelectedBandError = error => {
   return { type: SET_SELECTED_BAND_ERROR, error };
 };

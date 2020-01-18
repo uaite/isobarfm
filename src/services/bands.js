@@ -1,7 +1,7 @@
-import { IsobarFM } from "./instances";
+import { IsobarFM } from './instances';
 
 export const list = () => {
-  return IsobarFM.get("/bands");
+  return IsobarFM.get('/bands');
 };
 
 export const bandByID = id => {

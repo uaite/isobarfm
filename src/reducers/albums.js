@@ -1,14 +1,14 @@
 import {
   SET_ALBUMS,
   SET_LOADING_ALBUMS,
-  SET_ALBUMS_ERROR
-} from "../actions/albums";
+  SET_ALBUMS_ERROR,
+} from '../actions/albums';
 
 const initialState = {
   list: [],
   byBand: {},
   isLoading: false,
-  error: null
+  error: null,
 };
 
 const setAlbumsByBand = (albumList, bandID, albumIDs, byBand) => {
@@ -31,7 +31,7 @@ const setAlbumsByBand = (albumList, bandID, albumIDs, byBand) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ALBUMS:
-      console.log("set albums", action.value);
+      console.log('set albums', action.value);
       const byBand = setAlbumsByBand(
         action.value.albums,
         action.value.bandID,
@@ -43,12 +43,12 @@ export default (state = initialState, action) => {
         ...state,
         list: action.value.albums,
         byBand,
-        error: null
+        error: null,
       };
     case SET_LOADING_ALBUMS:
       return {
         ...state,
-        isLoading: action.value
+        isLoading: action.value,
       };
     case SET_ALBUMS_ERROR:
       return {
@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
         list: [],
         byBand: {},
         error: action.error,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;

@@ -1,13 +1,13 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect } from 'react';
 
-import Band from "../Band";
-import Loader from "../Loader";
+import Band from '../Band';
+import Loader from '../Loader';
 
-import { useSelector } from "react-redux";
-import useActions from "../../hooks/useActions";
+import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
 
-import * as bandsSelectors from "../../selectors/bands";
-import * as bandsActions from "../../actions/bands";
+import * as bandsSelectors from '../../selectors/bands';
+import * as bandsActions from '../../actions/bands';
 
 const BandList = () => {
   const bands = useSelector(bandsSelectors.getBands);

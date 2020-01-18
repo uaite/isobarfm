@@ -1,1 +1,1 @@
-export const BAND = "/band";
+export const BAND = '/band';

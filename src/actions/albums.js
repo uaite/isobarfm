@@ -1,4 +1,4 @@
-import * as albumsAPI from "../services/albums";
+import * as albumsAPI from '../services/albums';
 
 export const fetchAlbumsForBand = band => {
   return (dispatch, getState) => {
@@ -25,17 +25,17 @@ export const fetchAlbumsForBand = band => {
   };
 };
 
-export const SET_ALBUMS = "SET_ALBUMS";
+export const SET_ALBUMS = 'SET_ALBUMS';
 export const setAlbums = ({ albums, bandID, albumIDs }) => {
   return { type: SET_ALBUMS, value: { albums, bandID, albumIDs } };
 };
 
-export const SET_LOADING_ALBUMS = "SET_LOADING_ALBUMS";
+export const SET_LOADING_ALBUMS = 'SET_LOADING_ALBUMS';
 export const setLoadingAlbums = isLoading => {
   return { type: SET_LOADING_ALBUMS, value: isLoading };
 };
 
-export const SET_ALBUMS_ERROR = "SET_ALBUMS_ERROR";
+export const SET_ALBUMS_ERROR = 'SET_ALBUMS_ERROR';
 export const setAlbumsError = error => {
   return { type: SET_ALBUMS_ERROR, error };
 };

@@ -1,5 +1,5 @@
-import React from "react";
-import { AlbumContainer } from "./style";
+import React from 'react';
+import { AlbumContainer } from './style';
 
 const Album = ({ id, name, image }) => {
   return (

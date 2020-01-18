@@ -1,16 +1,16 @@
-import React, { Fragment, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { Fragment, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import Loader from "../Loader";
-import Album from "../Album";
+import Loader from '../Loader';
+import Album from '../Album';
 
-import { useSelector } from "react-redux";
-import useActions from "../../hooks/useActions";
+import { useSelector } from 'react-redux';
+import useActions from '../../hooks/useActions';
 
-import * as bandSelectors from "../../selectors/selectedBand";
-import * as bandActions from "../../actions/selectedBand";
+import * as bandSelectors from '../../selectors/selectedBand';
+import * as bandActions from '../../actions/selectedBand';
 
-import * as albumSelectors from "../../selectors/albums";
+import * as albumSelectors from '../../selectors/albums';
 
 const BandPage = () => {
   const { id } = useParams();

@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import BandList from "../BandList";
+import React, { Fragment } from 'react';
+import BandList from '../BandList';
 
 const Home = () => (
   <Fragment>

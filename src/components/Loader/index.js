@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 const Loader = () => (
   <Fragment>
@@ -69,7 +69,7 @@ const Loader = () => (
     transform: translate(24px, 0);
   }
 }
-`
+`,
       }}
     ></style>
     <template className="loader-container">
