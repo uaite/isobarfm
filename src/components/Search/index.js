@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { SearchContainer } from './style';
 
 import { ThemeContext } from 'styled-components';
@@ -21,14 +21,16 @@ const Search = () => {
 
   const setFilter = useActions(bandsActions.setBandListFilter);
 
+  useEffect(() => {
+    setFilter({ filter, sort, ascending });
+  });
+
   return (
     <SearchContainer theme={theme}>
       <input
         type="text"
         placeholder="Search..."
-        value={filter}
         onInput={e => {
-          //   if (e.target.value === filter) return;
           setFilter({ filter: e.target.value, sort, ascending });
         }}
       ></input>

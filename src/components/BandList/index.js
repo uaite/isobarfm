@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 
 import Band from '../Band';
 import Loader from '../Loader';
+import { BandListWrapper, BandListContainer } from './style';
 
 import { useSelector } from 'react-redux';
 import useActions from '../../hooks/useActions';
@@ -28,13 +29,14 @@ const BandList = () => {
     return bands.map(value => <Band key={value.id} {...value} />);
   };
 
+  const renderList = () => (
+    <BandListContainer>{error ? error.message : listBands()}</BandListContainer>
+  );
+
   return (
     <Fragment>
       {isLoading && <Loader />}
-      <Fragment>
-        <h1>Bands</h1>
-        {error ? error.message : listBands()}
-      </Fragment>
+      {!isLoading && renderList()}
     </Fragment>
   );
 };

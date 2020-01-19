@@ -6,7 +6,9 @@ import { useHistory } from 'react-router-dom';
 import { BAND } from '../../constants/routes';
 import { ThemeContext } from 'styled-components';
 
-const Band = ({ id, name, biography, image }) => {
+import noImg from '../../assets/no_image.png';
+
+const Band = ({ id, name, numPlays, image }) => {
   const history = useHistory();
   const theme = useContext(ThemeContext);
 
@@ -15,11 +17,14 @@ const Band = ({ id, name, biography, image }) => {
   };
 
   return (
-    <BandContainer theme={theme}>
-      <img src={image} alt={name} />
+    <BandContainer
+      theme={theme}
+      image={image}
+      fallback={noImg}
+      onClick={onBandClicked}
+    >
       <p>{name}</p>
-      <p>{biography}</p>
-      <button onClick={onBandClicked}>go to band</button>
+      <p>{numPlays}</p>
     </BandContainer>
   );
 };

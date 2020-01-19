@@ -27,8 +27,6 @@ const getFilteredList = ({ filter, sort, ascending }, { list }) => {
     usingSort = SORTING_MODES.ALPHABETICAL;
   }
 
-  console.log('filtering list', list);
-
   const filteredList = list
     .filter(band => band.name.toLowerCase().includes(filter.toLowerCase()))
     .sort((a, b) => {
