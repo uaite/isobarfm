@@ -1,18 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../Logo';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
+
 import { Container } from './style';
 
-const link = 'http://pngimg.com/uploads/apple_logo/apple_logo_PNG19670.png';
+import Search from '../Search';
 
-const Header = ({ routes }) => (
-  <Container>
-    <Logo alt="logo" src={link} />
-    {routes.map(({ displayName, to }) => (
-      <Link {...{ to, key: to }}>{displayName}</Link>
-    ))}
-  </Container>
-);
+import Logo from '../Logo';
+import logo from '../../assets/logo.png';
+
+const Header = ({ routes }) => {
+  const theme = useContext(ThemeContext);
+  const history = useHistory();
+
+  return (
+    <Container theme={theme}>
+      <Logo alt="logo" src={logo} />
+      {/* {routes.map(({ displayName, to }) => (
+        <Link {...{ to, key: to }}>{displayName}</Link>
+      ))} */}
+      <button onClick={() => history.goBack()}>Back</button>
+      <Search></Search>
+    </Container>
+  );
+};
 
 Header.defaultProps = { routes: [] };
 

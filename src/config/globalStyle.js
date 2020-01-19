@@ -1,17 +1,31 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
+import px2vw from '../utils/px2vw';
+import { light } from './themes';
+
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 
-  html, body {
+  :root {
     height: 100vh;
     width: 100vw;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    color: #000;
+    color: ${light.black};
+    background-color: ${light.bg}
+
+    font-size: ${px2vw(24)};
+
+      @media (min-width: 768px) {
+        font-size: ${px2vw(18)};
+      }
+
+      @media (min-width: 1024px) {
+        font-size: ${px2vw(16)};
+      }
+    }
   }
 
   *, *:before, *:after {
@@ -23,16 +37,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: #111;
+    color: ${light.primary};
     text-decoration: none;
     transition: .3s;
 
     :visited {
-      color: #111;
+      color: ${light.secondary};
     }
 
     :hover {
-      color: #fff;
+      color: darken(${light.primary}, 30%);
     }
   }
 `;

@@ -11,6 +11,7 @@ import * as bandsActions from '../../actions/bands';
 
 const BandList = () => {
   const bands = useSelector(bandsSelectors.getBands);
+  const filteredBands = useSelector(bandsSelectors.getFilteredBands);
   const error = useSelector(bandsSelectors.getError);
   const isLoading = useSelector(bandsSelectors.isBandListLoading);
 
@@ -20,8 +21,12 @@ const BandList = () => {
     fetchBands();
   }, [fetchBands]);
 
-  const listBands = () =>
-    bands.map(value => <Band key={value.id} {...value} />);
+  const listBands = () => {
+    if (filteredBands.length > 0) {
+      return filteredBands.map(value => <Band key={value.id} {...value} />);
+    }
+    return bands.map(value => <Band key={value.id} {...value} />);
+  };
 
   return (
     <Fragment>

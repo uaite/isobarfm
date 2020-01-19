@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BandContainer } from './style';
 
 import { useHistory } from 'react-router-dom';
 
 import { BAND } from '../../constants/routes';
+import { ThemeContext } from 'styled-components';
 
 const Band = ({ id, name, biography, image }) => {
   const history = useHistory();
+  const theme = useContext(ThemeContext);
 
   const onBandClicked = () => {
-    history.push(`/${BAND}/${id}`);
+    history.push(`${BAND}/${id}`);
   };
 
   return (
-    <BandContainer>
+    <BandContainer theme={theme}>
       <img src={image} alt={name} />
       <p>{name}</p>
       <p>{biography}</p>

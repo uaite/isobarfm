@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { GlobalStyle } from './config/globalStyle';
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
+
 import rootReducer from './reducers';
 import Routes from './routes';
+import { light } from './config/themes';
+import { ThemeProvider } from 'styled-components';
 
 const enhancers = [];
 if (process.env.NODE_ENV === 'development') {
@@ -28,9 +31,11 @@ const store = createStore(rootReducer, composedEnhancers);
 ReactDOM.render(
   <Provider store={store}>
     <GlobalStyle />
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <ThemeProvider theme={light}>
+      <HashRouter>
+        <Routes />
+      </HashRouter>
+    </ThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

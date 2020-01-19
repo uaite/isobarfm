@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const Logo = styled.img`
-  margin: 5px;
-  width: 30px;
+  margin: 15px;
+  width: 150px;
+  filter: brightness(-50%);
 `;
 
 Logo.displayName = 'Logo';

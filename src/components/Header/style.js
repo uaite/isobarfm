@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #333;
+  background-color: ${props => props.theme.bg};
   display: flex;
   align-items: center;
 `;

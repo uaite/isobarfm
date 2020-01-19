@@ -19,8 +19,8 @@ export const fetchBands = () => {
 };
 
 export const SET_BANDS = 'SET_BANDS';
-export const setBands = heroes => {
-  return { type: SET_BANDS, value: heroes };
+export const setBands = bands => {
+  return { type: SET_BANDS, value: bands };
 };
 
 export const SET_LOADING_BAND_LIST = 'SET_LOADING_BAND_LIST';
@@ -31,4 +31,9 @@ export const setLoadingBandList = isLoading => {
 export const SET_BANDS_ERROR = 'SET_BANDS_ERROR';
 export const setBandsError = error => {
   return { type: SET_BANDS_ERROR, error };
+};
+
+export const SET_BAND_LIST_FILTER = 'SET_BAND_LIST_FILTER';
+export const setBandListFilter = ({ filter, sort, ascending }) => {
+  return { type: SET_BAND_LIST_FILTER, value: { filter, sort, ascending } };
 };

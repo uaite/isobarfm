@@ -31,7 +31,6 @@ const setAlbumsByBand = (albumList, bandID, albumIDs, byBand) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ALBUMS:
-      console.log('set albums', action.value);
       const byBand = setAlbumsByBand(
         action.value.albums,
         action.value.bandID,
