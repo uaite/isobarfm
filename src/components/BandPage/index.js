@@ -36,20 +36,26 @@ const BandPage = () => {
     return [];
   };
 
+  const renderBandInfo = () => (
+    <Fragment>
+      <h1>Band</h1>
+      {selectedBand.name}
+    </Fragment>
+  );
+
+  const renderAlbumInfo = () => (
+    <Fragment>
+      <h1>Albums</h1>
+      {albumError ? albumError.message : listAlbums()}
+    </Fragment>
+  );
+
   return (
     <Fragment>
       {isBandLoading && <Loader />}
-      <Fragment>
-        <h1>Band</h1>
-        {selectedBand.name}
-      </Fragment>
-      <Fragment>
-        {areAlbumsLoading && <Loader />}
-        <Fragment>
-          <h1>Albums</h1>
-          {albumError ? albumError.message : listAlbums()}
-        </Fragment>
-      </Fragment>
+      {!isBandLoading && renderBandInfo()}
+      {areAlbumsLoading && <Loader />}
+      {!areAlbumsLoading && renderAlbumInfo()}
     </Fragment>
   );
 };

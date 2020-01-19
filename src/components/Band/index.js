@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BandContainer } from './style';
+import Card from '../Card';
 
 import { useHistory } from 'react-router-dom';
 
@@ -7,6 +7,9 @@ import { BAND } from '../../constants/routes';
 import { ThemeContext } from 'styled-components';
 
 import noImg from '../../assets/no_image.png';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 const Band = ({ id, name, numPlays, image }) => {
   const history = useHistory();
@@ -17,15 +20,13 @@ const Band = ({ id, name, numPlays, image }) => {
   };
 
   return (
-    <BandContainer
-      theme={theme}
-      image={image}
-      fallback={noImg}
-      onClick={onBandClicked}
-    >
-      <p>{name}</p>
-      <p>{numPlays}</p>
-    </BandContainer>
+    <Card theme={theme} image={image} fallback={noImg} onClick={onBandClicked}>
+      <h1>{name}</h1>
+      <h2>
+        <FontAwesomeIcon icon={faMusic} className="icon" />
+        {Number(numPlays).toLocaleString()}
+      </h2>
+    </Card>
   );
 };
 

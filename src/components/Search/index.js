@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { SearchContainer } from './style';
+import { SearchContainer, SearchInput } from './style';
 
 import { ThemeContext } from 'styled-components';
 
@@ -9,9 +9,12 @@ import * as bandsSelectors from '../../selectors/bands';
 import useActions from '../../hooks/useActions';
 import * as bandsActions from '../../actions/bands';
 
-import Icon, { ClickableIcon } from '../Icon';
+import { ClickableIcon } from '../Icon';
 import searchIcon from '../../assets/search.png';
 import orderBy from '../../assets/order_by.png';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 const Search = () => {
   const theme = useContext(ThemeContext);
@@ -27,15 +30,18 @@ const Search = () => {
 
   return (
     <SearchContainer theme={theme}>
-      <input
+      <SearchInput
         type="text"
         placeholder="Search..."
+        icon={searchIcon}
         onInput={e => {
           setFilter({ filter: e.target.value, sort, ascending });
         }}
-      ></input>
-      <Icon src={searchIcon}></Icon>
-      <ClickableIcon src={orderBy}></ClickableIcon>
+      ></SearchInput>
+      {/* <ClickableIcon src={orderBy}></ClickableIcon> */}
+      <button>
+        <FontAwesomeIcon icon={faSort} />
+      </button>
     </SearchContainer>
   );
 };

@@ -7,11 +7,10 @@ const Icon = styled.img`
 
 Icon.displayName = 'Icon';
 
-export const ClickableIcon = styled(Icon)`
+export const ClickableIcon = styled(Icon).attrs(props => ({
+  className: 'clickable',
+}))`
   cursor: pointer;
-  :hover {
-    filter: brightness(-5%);
-  }
 `;
 
 export default Icon;

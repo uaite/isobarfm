@@ -1,10 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 
-const Loader = () => (
-  <Fragment>
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
+import { ThemeContext } from 'styled-components';
+
+const Loader = () => {
+  const theme = useContext(ThemeContext);
+  return (
+    <Fragment>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .loader-container {
           display: flex;
           justify-content: center;
@@ -25,7 +29,7 @@ const Loader = () => (
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #fff;
+  background: ${theme.black};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
@@ -69,17 +73,18 @@ const Loader = () => (
   }
 }
 `,
-      }}
-    ></style>
-    <template className="loader-container">
-      <div className="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </template>
-  </Fragment>
-);
+        }}
+      ></style>
+      <template className="loader-container">
+        <div className="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </template>
+    </Fragment>
+  );
+};
 
 export default Loader;

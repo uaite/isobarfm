@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 
 import Band from '../Band';
 import Loader from '../Loader';
-import { BandListWrapper, BandListContainer } from './style';
+import { BandListContainer } from './style';
 
 import { useSelector } from 'react-redux';
 import useActions from '../../hooks/useActions';
@@ -10,8 +10,11 @@ import useActions from '../../hooks/useActions';
 import * as bandsSelectors from '../../selectors/bands';
 import * as bandsActions from '../../actions/bands';
 
+import noResults from '../../assets/no_results.png';
+
 const BandList = () => {
   const bands = useSelector(bandsSelectors.getBands);
+  const filter = useSelector(bandsSelectors.getFilter);
   const filteredBands = useSelector(bandsSelectors.getFilteredBands);
   const error = useSelector(bandsSelectors.getError);
   const isLoading = useSelector(bandsSelectors.isBandListLoading);
@@ -23,15 +26,22 @@ const BandList = () => {
   }, [fetchBands]);
 
   const listBands = () => {
-    if (filteredBands.length > 0) {
+    if (filter && filteredBands.length > 0) {
       return filteredBands.map(value => <Band key={value.id} {...value} />);
     }
     return bands.map(value => <Band key={value.id} {...value} />);
   };
 
-  const renderList = () => (
-    <BandListContainer>{error ? error.message : listBands()}</BandListContainer>
-  );
+  const renderList = () => {
+    if (filter && filteredBands.length === 0) {
+      return <img src={noResults} alt="No results for search"></img>;
+    }
+    return (
+      <BandListContainer>
+        {error ? error.message : listBands()}
+      </BandListContainer>
+    );
+  };
 
   return (
     <Fragment>

@@ -32,8 +32,22 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  button {
+  button, .clickable {
     border: 0;
+    border-radius: 2px;
+    transition: 0.1s
+
+    :focus {
+      outline: none;
+    }
+
+    :hover {
+      filter: brightness(0.9);
+    }
+
+    :active {
+      filter: brightness(0.8);
+    }
   }
 
   a {

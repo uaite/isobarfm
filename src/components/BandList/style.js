@@ -6,9 +6,14 @@ export const BandListWrapper = styled.div`
 `;
 
 export const BandListContainer = styled(BandListWrapper)`
-  background-color: ${props => props.theme.white};
+  background-color: ${props => props.theme.bg};
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: 5px;
 `;
+
+// ::after {
+//   content: '';
+//   flex: auto;
+// }
