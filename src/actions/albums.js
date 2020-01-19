@@ -2,6 +2,7 @@ import * as albumsAPI from '../services/albums';
 
 export const fetchAlbumsForBand = band => {
   return (dispatch, getState) => {
+    debugger;
     const bandID = band.id;
     const albumIDs = band.albums;
 
@@ -19,9 +20,9 @@ export const fetchAlbumsForBand = band => {
         .catch(err => {
           dispatch(setAlbumsError(err));
         });
+    } else {
+      dispatch(setAlbums({ albums: state.albums.list, bandID, albumIDs }));
     }
-
-    dispatch(setLoadingAlbums(false));
   };
 };
 

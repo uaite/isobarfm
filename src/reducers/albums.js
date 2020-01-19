@@ -42,6 +42,7 @@ export default (state = initialState, action) => {
         ...state,
         list: action.value.albums,
         byBand,
+        isLoading: false,
         error: null,
       };
     case SET_LOADING_ALBUMS:
