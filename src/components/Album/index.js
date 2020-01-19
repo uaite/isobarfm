@@ -1,13 +1,21 @@
-import React from 'react';
-import { AlbumContainer } from './style';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
+import Card from '../Card';
+import noImg from '../../assets/no_image.png';
 
 const Album = ({ id, name, image }) => {
+  const theme = useContext(ThemeContext);
+
   return (
-    <AlbumContainer>
-      <img src={image} alt={name} />
-      <p>{name}</p>
-      <p>{id}</p>
-    </AlbumContainer>
+    <Card
+      theme={theme}
+      image={image}
+      aria={`Cover of the album ${name}`}
+      fallback={noImg}
+    >
+      <h1>{name}</h1>
+    </Card>
   );
 };
 

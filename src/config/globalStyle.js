@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${light.primary};
+    color: ${light.accent};
     text-decoration: none;
     transition: .3s;
 
@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :hover {
-      color: darken(${light.primary}, 30%);
+      color: darken(${light.primary}, 0.3);
     }
   }
 `;

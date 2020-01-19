@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import hexToRGBA from '../../utils/hex2rgba';
 
-const Card = styled.div`
+const Card = styled.div.attrs(props => ({
+  tabIndex: 0,
+  role: 'listitem',
+  'aria-labelledby': `${props.aria}`,
+}))`
   background-color: ${props => props.theme.white};
   display: flex;
   flex-direction: column;
@@ -9,8 +13,8 @@ const Card = styled.div`
   margin: 5px;
   background-image: linear-gradient(
       to bottom,
-      ${props => hexToRGBA(props.theme.tertiary, 0.1)},
-      ${props => hexToRGBA(props.theme.tertiary, 0)} 90%
+      ${props => hexToRGBA(props.theme.accent, 0.1)},
+      ${props => hexToRGBA(props.theme.accent, 1)} 90%
     ),
     url(${props => props.image}), url(${props => props.fallback});
   background-size: contain;
@@ -40,8 +44,12 @@ const Card = styled.div`
     margin: 0 0.2em;
   }
 
-  :hover {
+  :hover,
+  :focus {
     filter: brightness(0.8);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+    outline: none;
   }
 
   :active {
@@ -60,5 +68,16 @@ const Card = styled.div`
 `;
 
 Card.displayName = 'Card';
+
+export const CardListContainer = styled.div`
+  padding: 5vmin;
+  max-width: 100vw;
+  background-color: ${props => props.theme.bg};
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 5px;
+  transition: 0.3s;
+`;
 
 export default Card;

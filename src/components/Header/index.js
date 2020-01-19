@@ -7,18 +7,22 @@ import Search from '../Search';
 
 import Logo from '../Logo';
 import logo from '../../assets/logo.png';
+import { useHistory } from 'react-router-dom';
 
-const Header = ({ routes }) => {
+const Header = () => {
   const theme = useContext(ThemeContext);
+  const history = useHistory();
+
+  const goHome = () => {
+    history.push('');
+  };
 
   return (
     <Container theme={theme}>
-      <Logo alt="logo" src={logo} />
+      <Logo alt="logo" src={logo} onClick={goHome} />
       <Search></Search>
     </Container>
   );
 };
-
-Header.defaultProps = { routes: [] };
 
 export default Header;

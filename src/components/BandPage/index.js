@@ -1,6 +1,12 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
+import {
+  BandHeader,
+  AlbumListContainer,
+  AlbumList,
+  BandContent,
+} from './style';
 import Loader from '../Loader';
 import Album from '../Album';
 
@@ -11,9 +17,12 @@ import * as bandSelectors from '../../selectors/selectedBand';
 import * as bandActions from '../../actions/selectedBand';
 
 import * as albumSelectors from '../../selectors/albums';
+import { ThemeContext } from 'styled-components';
 
 const BandPage = () => {
   const { id } = useParams();
+  const theme = useContext(ThemeContext);
+
   const selectedBand = useSelector(bandSelectors.getSelectedBand);
   const isBandLoading = useSelector(bandSelectors.isSelectedBandLoading);
 
@@ -38,16 +47,24 @@ const BandPage = () => {
 
   const renderBandInfo = () => (
     <Fragment>
-      <h1>Band</h1>
-      {selectedBand.name}
+      <BandHeader image={selectedBand.image} theme={theme}>
+        <h2>{selectedBand.genre}</h2>
+        <h1>{selectedBand.name}</h1>
+        <h2>{`${Number(selectedBand.numPlays).toLocaleString()} streams`}</h2>
+      </BandHeader>
+      <BandContent>
+        <p
+          dangerouslySetInnerHTML={{ __html: `${selectedBand.biography}` }}
+        ></p>
+      </BandContent>
     </Fragment>
   );
 
   const renderAlbumInfo = () => (
-    <Fragment>
+    <AlbumListContainer>
       <h1>Albums</h1>
-      {albumError ? albumError.message : listAlbums()}
-    </Fragment>
+      <AlbumList>{albumError ? albumError.message : listAlbums()}</AlbumList>
+    </AlbumListContainer>
   );
 
   return (
