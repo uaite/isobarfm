@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Logo = styled.img`
+const Logo = styled.img.attrs(props => ({
+  tabIndex: 0,
+}))`
   margin: 15px;
   max-width: 18vw;
   filter: brightness(0);

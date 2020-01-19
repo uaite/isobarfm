@@ -13,7 +13,6 @@ import * as bandsActions from '../../actions/bands';
 import noResults from '../../assets/no_results.png';
 
 const BandList = () => {
-  const bands = useSelector(bandsSelectors.getBands);
   const filter = useSelector(bandsSelectors.getFilter);
   const filteredBands = useSelector(bandsSelectors.getFilteredBands);
   const error = useSelector(bandsSelectors.getError);
@@ -26,10 +25,7 @@ const BandList = () => {
   }, [fetchBands]);
 
   const listBands = () => {
-    if (filter && filteredBands.length > 0) {
-      return filteredBands.map(value => <Band key={value.id} {...value} />);
-    }
-    return bands.map(value => <Band key={value.id} {...value} />);
+    return filteredBands.map(value => <Band key={value.id} {...value} />);
   };
 
   const renderList = () => {

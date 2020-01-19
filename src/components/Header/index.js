@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <Container theme={theme}>
-      <Logo alt="logo" src={logo} onClick={goHome} />
+      <Logo alt="logo" src={logo} onClick={goHome} tabindex="0" />
       <Search></Search>
     </Container>
   );

@@ -64,6 +64,7 @@ export const BlurredImage = styled.img``;
 export const BandContent = styled.div`
   padding: 3vh 5vw;
   font-size: 1.6em;
+  line-height: 1.2em;
 
   @media (min-width: 1024px) {
     font-size: 1.2em;

@@ -27,17 +27,40 @@ const getFilteredList = ({ filter, sort, ascending }, { list }) => {
     usingSort = SORTING_MODES.ALPHABETICAL;
   }
 
-  const filteredList = list
-    .filter(band => band.name.toLowerCase().includes(filter.toLowerCase()))
-    .sort((a, b) => {
-      if (ascending) {
-        return a[usingSort] - b[usingSort];
-      } else {
-        return b[usingSort] - a[usingSort];
-      }
-    });
+  const compare = (a, b) => {
+    const type = typeof a[usingSort];
+    switch (type) {
+      case 'string':
+        if (ascending) {
+          return a[usingSort].localeCompare(b[usingSort], undefined, {
+            sensivitiy: 'base',
+          });
+        } else {
+          return b[usingSort].localeCompare(a[usingSort], undefined, {
+            sensivitiy: 'base',
+          });
+        }
+      case 'number':
+        if (ascending) {
+          return a[usingSort] - b[usingSort];
+        } else {
+          return b[usingSort] - a[usingSort];
+        }
+      default:
+        return 0;
+    }
+  };
 
-  return filteredList;
+  const sortedList = list.sort(compare);
+
+  let filteredList = sortedList;
+  if (filter !== '') {
+    filteredList = filteredList.filter(band =>
+      band.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }
+
+  return JSON.parse(JSON.stringify(filteredList));
 };
 
 export default (state = initialState, action) => {
@@ -46,6 +69,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         list: action.value,
+        filteredList: action.value,
+        sort: SORTING_MODES.ALPHABETICAL,
+        ascending: true,
         error: null,
       };
     case SET_LOADING_BAND_LIST:

@@ -32,8 +32,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  button, .clickable {
+  button {
     border: 0;
+    background-color: ${light.bg}
     border-radius: 2px;
     transition: 0.1s
 
