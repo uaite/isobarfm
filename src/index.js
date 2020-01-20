@@ -30,8 +30,8 @@ const store = createStore(rootReducer, composedEnhancers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <GlobalStyle />
     <ThemeProvider theme={light}>
+      <GlobalStyle />
       <HashRouter>
         <Routes />
       </HashRouter>

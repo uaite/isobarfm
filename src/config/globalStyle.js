@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 import px2vw from '../utils/px2vw';
-import { light } from './themes';
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -13,8 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     font-family: 'Open Sans', sans-serif;
-    color: ${light.black};
-    background-color: ${light.bg}
+    color: ${props => props.theme.black};
+    background-color: ${props => props.theme.bg}
 
     font-size: ${px2vw(24)};
 
@@ -34,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     border: 0;
-    background-color: ${light.bg}
+    background-color: ${props => props.theme.bg}
     border-radius: 2px;
     transition: 0.1s
 
@@ -52,16 +51,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${light.accent};
+    color: ${props => props.theme.accent};
     text-decoration: none;
     transition: .3s;
 
     :visited {
-      color: ${light.secondary};
+      color: ${props => props.theme.secondary};
     }
 
     :hover {
-      color: darken(${light.primary}, 0.3);
+      color: darken(${props => props.theme.primary}, 0.3);
     }
   }
 `;
