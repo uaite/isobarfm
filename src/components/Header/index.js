@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 
 import { Container } from './style';
 
@@ -10,7 +9,6 @@ import logo from '../../assets/logo.png';
 import { useHistory } from 'react-router-dom';
 
 const Header = () => {
-  const theme = useContext(ThemeContext);
   const history = useHistory();
 
   const goHome = () => {
@@ -18,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <Container theme={theme}>
+    <Container>
       <Logo alt="logo" src={logo} onClick={goHome} tabindex="0" />
       <Search></Search>
     </Container>

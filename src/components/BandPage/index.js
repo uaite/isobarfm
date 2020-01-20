@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -18,11 +18,9 @@ import * as bandSelectors from '../../selectors/selectedBand';
 import * as bandActions from '../../actions/selectedBand';
 
 import * as albumSelectors from '../../selectors/albums';
-import { ThemeContext } from 'styled-components';
 
 const BandPage = () => {
   const { id } = useParams();
-  const theme = useContext(ThemeContext);
 
   const selectedBand = useSelector(bandSelectors.getSelectedBand);
   const isBandLoading = useSelector(bandSelectors.isSelectedBandLoading);
@@ -48,7 +46,7 @@ const BandPage = () => {
 
   const renderBandInfo = () => (
     <Fragment>
-      <BandHeader image={selectedBand.image} theme={theme}>
+      <BandHeader image={selectedBand.image}>
         <h2>{selectedBand.genre}</h2>
         <h1>{selectedBand.name}</h1>
         <h2>{`${Number(selectedBand.numPlays).toLocaleString()} streams`}</h2>
