@@ -2,6 +2,7 @@
   "name": "heroes",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://uaite.github.io/isobarfm/",
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -47,7 +48,9 @@
     "start": "react-scripts start --no-cache",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -69,6 +72,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
     "eslint-plugin-prettier": "^3.1.0",
+    "gh-pages": "^2.2.0",
     "jest-styled-components": "^6.3.3",
     "prettier": "^1.18.2"
   }
