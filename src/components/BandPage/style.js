@@ -36,7 +36,7 @@ export const BandHeader = styled.div`
   }
 
   h1 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 6em;
     color: ${props => props.theme.bg};
     margin: 0.2em;

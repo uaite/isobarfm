@@ -55,7 +55,9 @@ const BandPage = () => {
       </BandHeader>
       <BandContent>
         <p
-          dangerouslySetInnerHTML={{ __html: `${selectedBand.biography}` }}
+          dangerouslySetInnerHTML={{
+            __html: `${selectedBand.biography}`,
+          }}
         ></p>
       </BandContent>
     </Fragment>

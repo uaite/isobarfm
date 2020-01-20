@@ -27,13 +27,14 @@ const Card = styled.div.attrs(props => ({
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3);
 
   > h1 {
-    font-size: 2em;
+    font-size: 1.8em;
+    font-weight: 650;
     color: ${props => props.theme.black};
     margin: 0.1em;
   }
 
   > h2 {
-    font-size: 1.6em;
+    font-size: 1.4em;
     color: ${props => props.theme.black};
     margin: 0 0.1em 0.1em;
   }
