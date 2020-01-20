@@ -9,6 +9,7 @@ import {
 } from './style';
 import Loader from '../Loader';
 import Album from '../Album';
+import Error from '../Error';
 
 import { useSelector } from 'react-redux';
 import useActions from '../../hooks/useActions';
@@ -63,7 +64,9 @@ const BandPage = () => {
   const renderAlbumInfo = () => (
     <AlbumListContainer>
       <h1>Albums</h1>
-      <AlbumList>{albumError ? albumError.message : listAlbums()}</AlbumList>
+      <AlbumList>
+        {albumError ? <Error message={albumError.message} /> : listAlbums()}
+      </AlbumList>
     </AlbumListContainer>
   );
 

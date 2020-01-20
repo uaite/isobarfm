@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 
 import Band from '../Band';
 import Loader from '../Loader';
+import Error from '../Error';
 import { BandListContainer } from './style';
 
 import { useSelector } from 'react-redux';
@@ -9,8 +10,6 @@ import useActions from '../../hooks/useActions';
 
 import * as bandsSelectors from '../../selectors/bands';
 import * as bandsActions from '../../actions/bands';
-
-import noResults from '../../assets/no_results.png';
 
 const BandList = () => {
   const filter = useSelector(bandsSelectors.getFilter);
@@ -30,11 +29,11 @@ const BandList = () => {
 
   const renderList = () => {
     if (filter && filteredBands.length === 0) {
-      return <img src={noResults} alt="No results for search"></img>;
+      return <Error message={'No results to show.'}></Error>;
     }
     return (
       <BandListContainer>
-        {error ? error.message : listBands()}
+        {error ? <Error message={error.message} /> : listBands()}
       </BandListContainer>
     );
   };
