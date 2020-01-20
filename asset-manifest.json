@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/isobarfm/static/js/main.18b9f15b.chunk.js",
+    "main.js.map": "/isobarfm/static/js/main.18b9f15b.chunk.js.map",
+    "runtime-main.js": "/isobarfm/static/js/runtime-main.091823b2.js",
+    "runtime-main.js.map": "/isobarfm/static/js/runtime-main.091823b2.js.map",
+    "static/js/2.70de18fa.chunk.js": "/isobarfm/static/js/2.70de18fa.chunk.js",
+    "static/js/2.70de18fa.chunk.js.map": "/isobarfm/static/js/2.70de18fa.chunk.js.map",
+    "index.html": "/isobarfm/index.html",
+    "precache-manifest.5b9b44289c589f864916431c1b6307c2.js": "/isobarfm/precache-manifest.5b9b44289c589f864916431c1b6307c2.js",
+    "service-worker.js": "/isobarfm/service-worker.js",
+    "static/media/logo.png": "/isobarfm/static/media/logo.40d312e2.png",
+    "static/media/no_results.png": "/isobarfm/static/media/no_results.3ffe8584.png",
+    "static/media/search.png": "/isobarfm/static/media/search.3e6da402.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.091823b2.js",
+    "static/js/2.70de18fa.chunk.js",
+    "static/js/main.18b9f15b.chunk.js"
+  ]
+}
