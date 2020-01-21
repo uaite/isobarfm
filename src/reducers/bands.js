@@ -3,6 +3,7 @@ import {
   SET_LOADING_BAND_LIST,
   SET_BANDS_ERROR,
   SET_BAND_LIST_FILTER,
+  SET_PAGES,
 } from '../actions/bands';
 
 export const SORTING_MODES = {
@@ -14,6 +15,7 @@ const sorts = Object.values(SORTING_MODES);
 const initialState = {
   list: [],
   filteredList: [],
+  pages: 3,
   filter: '',
   sort: SORTING_MODES.ALPHABETICAL,
   ascending: true,
@@ -93,6 +95,11 @@ export default (state = initialState, action) => {
         sort: action.value.sort,
         ascending: action.value.ascending,
         filteredList: getFilteredList(action.value, state),
+      };
+    case SET_PAGES:
+      return {
+        ...state,
+        pages: action.value,
       };
     default:
       return state;

@@ -37,3 +37,8 @@ export const SET_BAND_LIST_FILTER = 'SET_BAND_LIST_FILTER';
 export const setBandListFilter = ({ filter, sort, ascending }) => {
   return { type: SET_BAND_LIST_FILTER, value: { filter, sort, ascending } };
 };
+
+export const SET_PAGES = 'SET_PAGES';
+export const setPages = pages => {
+  return { type: SET_PAGES, value: pages };
+};
