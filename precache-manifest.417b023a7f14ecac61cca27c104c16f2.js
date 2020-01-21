@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "215f9ed710597ee4968bdf567f8fd7a2",
+    "revision": "10a07c89d823dc6de3616bacbf2f7667",
     "url": "/isobarfm/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/isobarfm/static/js/2.752a40b5.chunk.js"
   },
   {
-    "revision": "d4e8bb67a97cb34d8dac",
-    "url": "/isobarfm/static/js/main.c47974e0.chunk.js"
+    "revision": "b674a0ba2b3d272bd687",
+    "url": "/isobarfm/static/js/main.5f1a8bef.chunk.js"
   },
   {
     "revision": "b272d0fcc27c49427f8b",
