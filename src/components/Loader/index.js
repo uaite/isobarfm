@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
 const Loader = () => {
+  const theme = useContext(ThemeContext);
+
   return (
     <Fragment>
       <style
@@ -26,7 +29,7 @@ const Loader = () => {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: ${props => props.theme.black};
+  background: ${theme.black};
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

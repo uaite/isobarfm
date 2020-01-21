@@ -30,11 +30,6 @@ export const setAlbums = ({ albums, bandID, albumIDs }) => {
   return { type: SET_ALBUMS, value: { albums, bandID, albumIDs } };
 };
 
-// export const SET_ALBUMS_BY_BAND = 'SET_ALBUMS_BY_BAND';
-// export const setAlbumsByBand = ({ albums, bandID, albumIDs }) => {
-//   return { type: SET_ALBUMS_BY_BAND, value: { albums, bandID, albumIDs } };
-// };
-
 export const SET_LOADING_ALBUMS = 'SET_LOADING_ALBUMS';
 export const setLoadingAlbums = isLoading => {
   return { type: SET_LOADING_ALBUMS, value: isLoading };
