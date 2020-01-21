@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import hexToRGBA from '../../utils/hex2rgba';
 
+const clickableCSS = `
+  cursor: ${props => (props.onClick ? 'pointer' : 'default')};
+
+  :hover,
+  :focus {
+    filter: brightness(0.8);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+    outline: none;
+  }
+
+  :active {
+    filter: brightness(0.6);
+  }
+`;
+
 const Card = styled.div.attrs(props => ({
   tabIndex: 0,
   role: 'listitem',
@@ -19,7 +35,7 @@ const Card = styled.div.attrs(props => ({
     url(${props => props.image}), url(${props => props.fallback});
   background-size: contain;
   border-radius: 3px;
-  cursor: pointer;
+  cursor: ${props => (props.onClick ? 'pointer' : 'default')};
   transition: 0.3s;
   padding: 5px;
   width: 40vw;
@@ -45,17 +61,7 @@ const Card = styled.div.attrs(props => ({
     margin: 0 0.2em;
   }
 
-  :hover,
-  :focus {
-    filter: brightness(0.8);
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    transform: translate(2px, 2px);
-    outline: none;
-  }
-
-  :active {
-    filter: brightness(0.6);
-  }
+  ${props => (props.onClick ? `${clickableCSS}` : '')}
 
   @media (min-width: 768px) {
     width: 25vw;
@@ -67,7 +73,6 @@ const Card = styled.div.attrs(props => ({
     height: 20vw;
   }
 `;
-
 Card.displayName = 'Card';
 
 export const CardListContainer = styled.div`
