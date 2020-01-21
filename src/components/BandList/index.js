@@ -40,11 +40,11 @@ const BandList = () => {
 
   const scrollCallback = useCallback(
     evt => {
-      if (getScrollPercent() > 85) {
+      if (getScrollPercent() > 85 && pages * 10 < filteredBands.length) {
         setPages(pages + 1);
       }
     },
-    [pages, setPages]
+    [pages, setPages, filteredBands]
   );
 
   useScrollEvent(scrollCallback);
@@ -72,7 +72,9 @@ const BandList = () => {
     return (
       <BandListWrapper>
         <p>
-          Showing {filteredBands.length} results {getSortText()}
+          Showing{' '}
+          {pages > filteredBands.length ? filteredBands.length : pages * 10} of{' '}
+          {filteredBands.length} results {getSortText()}
         </p>
         <BandListContainer>
           {error ? <Error message={error.message} /> : listBands()}
