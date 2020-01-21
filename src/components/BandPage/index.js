@@ -36,12 +36,11 @@ const BandPage = () => {
   }, [fetchBandByID, id]);
 
   const listAlbums = () => {
-    if (albumsByBand[selectedBand.id]) {
-      return albumsByBand[selectedBand.id].map(value => (
-        <Album key={value.id} {...value}></Album>
-      ));
+    const albumList = albumsByBand[selectedBand.id];
+    if (albumList && albumList.length > 0) {
+      return albumList.map(value => <Album key={value.id} {...value}></Album>);
     }
-    return [];
+    return <Error message="No albums to display." />;
   };
 
   const renderBandInfo = () => (
